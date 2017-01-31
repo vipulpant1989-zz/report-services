@@ -3,6 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>report-services</artifactId>
 	<name>report-services</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<groupId>bbt</groupId>
 	<description>creates report for the application</description>
 	<build>
 		<plugins>
