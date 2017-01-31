@@ -1,0 +1,27 @@
+spring:
+ profiles:
+  active: development
+   
+server:
+ port: 8090
+
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://127.0.0.1:8761/eureka/
+
+---
+spring:
+  profiles: cloud
+eureka:
+ instance:
+  hostname: localhost
+  nonSecurePort: 80
+
+
+jasperSource:
+ prefix:jasperreports/
+ suffix:.jrxml
+ reportDataKey:datasource
+ viewName:report_*
+ 

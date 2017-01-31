@@ -1,0 +1,1 @@
+web java -Dserver.port=$PORT $JAVA_OPTS -jar /eureka-service/target/eureka-service.jar
