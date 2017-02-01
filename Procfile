@@ -1,1 +1,1 @@
-web java -Dserver.port=$PORT $JAVA_OPTS -jar /target/report-services.jar
+java -Dserver.port=52430 -jar target/report-services.jar
