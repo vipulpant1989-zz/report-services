@@ -12,7 +12,7 @@
 	<name>report engine for app</name>
 	<description>Jasper Reports with Spring Boot</description>
 	<properties>
-		<full-artifact-name>target/${project.finalName}.jar</full-artifact-name>
+		<full-artifact-name>target/${project.build.finalName}.jar</full-artifact-name>
 	</properties>
 	<dependencies>
 		<dependency>
