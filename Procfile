@@ -1,1 +1,1 @@
-java -Dserver.port=52430 -jar target/report-services.jar
+web:    java -cp target/classes:target/dependency/* -Dserver.port=8888 com/bbt/config/Application
