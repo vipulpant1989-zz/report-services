@@ -1,9 +1,8 @@
 package com.bbt.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -13,14 +12,18 @@ import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResol
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.bbt")
 public class WebConfigurer extends WebMvcConfigurerAdapter {
+	
+	@Override
+	public void configureDefaultServletHandling(
+			final DefaultServletHandlerConfigurer configurer) {
 
-	@Autowired
-	JasperConfigBean jasperConfigBean;
+		configurer.enable();
+	}
 
 	@Bean
 	public InternalResourceViewResolver getInternalResourceViewResolver() {
+		System.out.println("adding view resolver");
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setViewClass(JstlView.class);
 		resolver.setPrefix("classpath:views/");
@@ -42,9 +45,24 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 		return resolver;
 	}
 
-	// @Override
-	// public void configureDefaultServletHandling(
-	// final DefaultServletHandlerConfigurer configurer) {
-	// configurer.enable();
-	// }
+	/*
+	 * @Bean public DispatcherServlet dispatcherServlet() { return new
+	 * DispatcherServlet(); }
+	 * 
+	 * @Bean public ServletRegistrationBean dispatchServletRegistration() {
+	 * 
+	 * ServletRegistrationBean registration = new ServletRegistrationBean(
+	 * dispatcherServlet(), "/"); registration
+	 * .setName(DispatcherServletAutoConfiguration
+	 * .DEFAULT_DISPATCHER_SERVLET_REGISTRATION_BEAN_NAME);
+	 * 
+	 * return registration;
+	 * 
+	 * }
+	 * 
+	 * @Bean public EmbeddedServletContainerFactory servletContainer() {
+	 * TomcatEmbeddedServletContainerFactory factory = new
+	 * TomcatEmbeddedServletContainerFactory(); return factory; }
+	 */
+
 }
