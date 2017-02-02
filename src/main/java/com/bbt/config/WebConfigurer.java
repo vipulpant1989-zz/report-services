@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -13,17 +15,21 @@ import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResol
 @Configuration
 @EnableWebMvc
 public class WebConfigurer extends WebMvcConfigurerAdapter {
-	
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/report/images/**").addResourceLocations(
+				"/report/images/");
+	}
+
 	@Override
 	public void configureDefaultServletHandling(
 			final DefaultServletHandlerConfigurer configurer) {
-
 		configurer.enable();
 	}
 
 	@Bean
 	public InternalResourceViewResolver getInternalResourceViewResolver() {
-		System.out.println("adding view resolver");
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setViewClass(JstlView.class);
 		resolver.setPrefix("classpath:views/");
@@ -45,24 +51,9 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 		return resolver;
 	}
 
-	/*
-	 * @Bean public DispatcherServlet dispatcherServlet() { return new
-	 * DispatcherServlet(); }
-	 * 
-	 * @Bean public ServletRegistrationBean dispatchServletRegistration() {
-	 * 
-	 * ServletRegistrationBean registration = new ServletRegistrationBean(
-	 * dispatcherServlet(), "/"); registration
-	 * .setName(DispatcherServletAutoConfiguration
-	 * .DEFAULT_DISPATCHER_SERVLET_REGISTRATION_BEAN_NAME);
-	 * 
-	 * return registration;
-	 * 
-	 * }
-	 * 
-	 * @Bean public EmbeddedServletContainerFactory servletContainer() {
-	 * TomcatEmbeddedServletContainerFactory factory = new
-	 * TomcatEmbeddedServletContainerFactory(); return factory; }
-	 */
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/").setViewName("forward://index.html");
+	}
 
 }
