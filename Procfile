@@ -1,1 +1,1 @@
-web:    java -cp target/classes:target/dependency/* -Dserver.port=8888 com/bbt/config/Application
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/report-services.jar --spring.profiles.active=heroku
