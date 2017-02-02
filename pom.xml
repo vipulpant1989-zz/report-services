@@ -90,6 +90,13 @@
 				<configuration>
 					<mainClass>com.bbt.config.Application</mainClass>
 				</configuration>
+				<executions>
+					<execution>
+					    <goals>
+						<goal>repackage</goal>
+					    </goals>
+					</execution>
+			        </executions>
 				<!-- <configuration> <jvmArguments> -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y 
 					</jvmArguments> </configuration> -->
 			</plugin>
