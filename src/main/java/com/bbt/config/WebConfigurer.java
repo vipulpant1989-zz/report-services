@@ -2,13 +2,11 @@ package com.bbt.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver;
 
@@ -18,22 +16,42 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/report/images/**").addResourceLocations(
-				"/report/images/");
+		registry.addResourceHandler("/*.html").addResourceLocations(
+				"/WEB-INF/views/");
+		registry.addResourceHandler("/WEB-INF/views/**").addResourceLocations(
+				"/WEB-INF/views/");
+		registry.addResourceHandler("/json/**").addResourceLocations(
+				"/app/json/");
+		registry.addResourceHandler("/css/**")
+				.addResourceLocations("/app/css/");
+		registry.addResourceHandler("/audio/**").addResourceLocations(
+				"/app/audio/");
+		registry.addResourceHandler("/scripts/**").addResourceLocations(
+				"/app/scripts/");
+		registry.addResourceHandler("/placeholders/**").addResourceLocations(
+				"/app/placeholders/");
+		registry.addResourceHandler("/js/**").addResourceLocations("/app/js/");
+		registry.addResourceHandler("/img/**")
+				.addResourceLocations("/app/img/");
+		registry.addResourceHandler("/favicon/**").addResourceLocations(
+				"/favicon/");
+		registry.addResourceHandler("/dist/**").addResourceLocations(
+				"/app/dist/");
 	}
 
-	@Override
-	public void configureDefaultServletHandling(
-			final DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
-	}
+	// @Override
+	// public void configureDefaultServletHandling(
+	// final DefaultServletHandlerConfigurer configurer) {
+	//
+	// configurer.enable();
+	// }
 
 	@Bean
 	public InternalResourceViewResolver getInternalResourceViewResolver() {
+		System.out.println("adding view resolver");
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setViewClass(JstlView.class);
-		resolver.setPrefix("classpath:views/");
-		resolver.setSuffix(".jsp");
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".html");
 		resolver.setOrder(1);
 		return resolver;
 	}
@@ -53,7 +71,8 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("forward://index.html");
+		registry.addViewController("/").setViewName(
+				"forward:/WEB-INF/views/index.html");
 	}
 
 }
