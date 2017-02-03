@@ -88,6 +88,14 @@
 	<!-- Package as an executable jar -->
 	<build>
 		<finalName>report-services</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/webapp</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -97,11 +105,11 @@
 				</configuration>
 				<executions>
 					<execution>
-					    <goals>
-						<goal>repackage</goal>
-					    </goals>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
 					</execution>
-			        </executions>
+				</executions>
 				<!-- <configuration> <jvmArguments> -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y 
 					</jvmArguments> </configuration> -->
 			</plugin>
@@ -152,6 +160,14 @@
 				</property>
 			</activation>
 			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+					</resource>
+					<resource>
+						<directory>src/main/webapp</directory>
+					</resource>
+				</resources>
 				<plugins>
 					<plugin>
 						<groupId>com.heroku.sdk</groupId>
@@ -165,7 +181,8 @@
 							</includes>
 							<jdkVersion>1.8</jdkVersion>
 							<processTypes>
-								<web>java $JAVA_OPTS -Dserver.port=$PORT -jar target/report-services.jar --spring.profiles.active=heroku</web>
+								<web>java $JAVA_OPTS -Dserver.port=$PORT -jar
+									target/report-services.jar --spring.profiles.active=heroku</web>
 							</processTypes>
 						</configuration>
 						<executions>
