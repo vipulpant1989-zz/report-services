@@ -90,7 +90,7 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName(
-				"forward:/WEB-INF/views/index.html");
+				"forward:/WEB-INF/index.html");
 	}
 
 	// @Bean

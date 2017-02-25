@@ -19,6 +19,7 @@
     "webpack-dev-server": "^2.3.0"
   },
   "devDependencies": {
+    "babel-loader": "^6.3.2",
     "css-loader": "^0.26.1"
   }
 }

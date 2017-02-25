@@ -154,7 +154,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<installDirectory>${NODE_PATH}</installDirectory>
+<!-- 					<installDirectory>${NODE_PATH}</installDirectory> -->
 					<nodeVersion>v4.6.0</nodeVersion>
 					<workingDirectory>src/main/webapp/WEB-INF</workingDirectory>
 					<npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
