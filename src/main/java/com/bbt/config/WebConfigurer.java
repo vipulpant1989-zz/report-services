@@ -60,7 +60,7 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 	@Bean
 	public InternalResourceViewResolver getInternalResourceViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("WEB-INF/");
+		resolver.setPrefix("/WEB-INF/");
 		resolver.setSuffix(".html");
 		resolver.setOrder(1);
 		return resolver;
