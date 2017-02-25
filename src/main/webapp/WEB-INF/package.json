@@ -1,0 +1,24 @@
+{
+  "name": "bbt-web-app",
+  "version": "1.0.0",
+  "description": "this application is user interface for creating reports with use of react and flux.",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "vipul pant",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-mdl": "^1.9.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.1"
+  }
+}

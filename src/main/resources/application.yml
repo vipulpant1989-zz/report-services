@@ -10,4 +10,8 @@ jasperSource:
  suffix:.jrxml
  reportDataKey:datasource
  viewName:report_*
+
+application:
+ version: '@project.version@'
+ java_version: '@project.version@'
  

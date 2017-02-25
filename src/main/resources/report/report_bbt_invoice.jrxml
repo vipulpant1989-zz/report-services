@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bbt_invoice" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91b44d16-3998-44b5-b8d8-109471f5ce61">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bbt_invoice" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91b44d16-3998-44b5-b8d8-109471f5ce61">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="317"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Times New Roman" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="12" isBold="true"/>
@@ -34,12 +34,15 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="3d915c85-6c8a-4541-b8cb-565ff8152a36"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="address" class="java.lang.String"/>
+	<field name="billNumber" class="java.lang.String"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
 		<groupHeader>
 			<band height="100">
 				<staticText>
-					<reportElement x="1" y="31" width="108" height="42" uuid="917d2e7e-66d1-4630-a104-896e24f00871"/>
+					<reportElement x="1" y="58" width="108" height="42" uuid="917d2e7e-66d1-4630-a104-896e24f00871"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="Times New Roman" size="12" isBold="true"/>
 					</textElement>
@@ -63,25 +66,21 @@
 	<title>
 		<band height="219" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="80" y="126" width="403" height="62" uuid="234a469d-4426-4997-9956-457472e9c0ba"/>
+				<reportElement style="Title" x="109" y="133" width="338" height="62" uuid="234a469d-4426-4997-9956-457472e9c0ba"/>
 				<textElement verticalAlignment="Middle">
-					<font size="36" pdfFontName="Times-Roman"/>
+					<font size="26" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[Big Band Theory Pvt ltd]]></text>
 			</staticText>
-			<image>
-				<reportElement x="1" y="0" width="171" height="115" uuid="a40a4628-4a33-4354-9139-4ec48a112164"/>
-				<imageExpression><![CDATA["\\report\\images\\bbt_logo_small.png"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement style="SubTitle" x="447" y="0" width="107" height="25" forecolor="#000000" uuid="48c312b3-16a2-477f-9639-d4d686983cd9"/>
+				<reportElement style="SubTitle" x="448" y="0" width="107" height="25" forecolor="#000000" uuid="48c312b3-16a2-477f-9639-d4d686983cd9"/>
 				<textElement>
 					<font fontName="Times New Roman" size="14" isBold="true" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[Big Band Theory]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="SubTitle" x="447" y="25" width="107" height="22" forecolor="#000000" uuid="75ce27a9-6741-4f8c-b290-2095bf5ac621"/>
+				<reportElement style="SubTitle" x="448" y="25" width="107" height="22" forecolor="#000000" uuid="75ce27a9-6741-4f8c-b290-2095bf5ac621"/>
 				<textElement>
 					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman"/>
 				</textElement>
@@ -93,13 +92,6 @@
 					<font fontName="Times New Roman" size="12" isBold="false" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[Chandigarh - 160047]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="SubTitle" x="447" y="69" width="24" height="22" uuid="214d8639-ac50-4798-9325-ed4f39ef2198"/>
-				<textElement>
-					<font fontName="Times New Roman" size="12" isBold="true" isItalic="false" pdfFontName="Times-Roman"/>
-				</textElement>
-				<text><![CDATA[No:]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -116,7 +108,7 @@
 				<text><![CDATA[Bill To,]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement key="table" style="table" x="0" y="133" width="552" height="111" uuid="016f22fc-688c-447b-ab3c-168c911e2cf7"/>
+				<reportElement key="table" style="table" x="3" y="133" width="552" height="111" uuid="016f22fc-688c-447b-ab3c-168c911e2cf7"/>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="Table Dataset 1" uuid="a9d0cd35-29d0-4b23-9251-ab12b3a6cf96">
 						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
@@ -131,19 +123,12 @@
 					</jr:column>
 				</jr:table>
 			</componentElement>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement style="Column header" x="412" y="31" width="143" height="15" forecolor="#000000" uuid="f5f793e6-4f92-45bf-8363-256498cb10fe"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement style="Column header" x="306" y="32" width="105" height="15" forecolor="#000000" uuid="f0d713ca-c50b-4f5b-a6f6-912deee4f2e3"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
-				<text><![CDATA[Date:]]></text>
+				<text><![CDATA[No:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="306" y="46" width="105" height="15" forecolor="#000000" uuid="d03ecba7-abc1-4b1c-82da-e966ad346b89"/>
@@ -173,6 +158,18 @@
 				</textElement>
 				<text><![CDATA[AAGCB4327ASD001]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="1" y="47" width="100" height="20" uuid="2b84c3d0-4177-411c-966f-ab9de6798daa"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="67" width="100" height="20" uuid="869a3a33-9fac-458d-89c1-99e720d8d830"/>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="32" width="100" height="20" uuid="9c85f521-4c92-4918-8eaa-50a05ad9ea44"/>
+				<textFieldExpression><![CDATA[$F{billNumber}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
@@ -227,3 +224,5 @@
 		<band splitType="Stretch"/>
 	</summary>
 </jasperReport>
+
+

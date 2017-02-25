@@ -1,4 +1,4 @@
-package com.bbt.config;
+package com.bbt.bean;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

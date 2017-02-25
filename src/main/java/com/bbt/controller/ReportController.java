@@ -22,10 +22,10 @@ public class ReportController {
 	private static final String FORMAT = "format";
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getAll() {
-		return new ModelAndView("reports");
+	public ModelAndView getAll() throws Exception {
+		throw new NullPointerException();
+		// return new ModelAndView("reports");
 	}
-
 	@RequestMapping(value = "/{reportName}", method = RequestMethod.GET)
 	public ModelAndView getReportByName(
 			@PathVariable("reportName") final String reportName,
@@ -47,4 +47,5 @@ public class ReportController {
 		map.put("datasource", beanColDataSource);
 		return new ModelAndView("report_" + reportName, map);
 	}
+	
 }
