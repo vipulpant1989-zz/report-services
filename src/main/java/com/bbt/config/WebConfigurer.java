@@ -1,7 +1,5 @@
 package com.bbt.config;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,27 +27,27 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-		registry.addResourceHandler("/*.html").addResourceLocations(
-				"/WEB-INF/views/");
+		registry.addResourceHandler("/WEB-INF/**").addResourceLocations(
+				"/WEB-INF/");//
 		registry.addResourceHandler("/WEB-INF/views/**").addResourceLocations(
-				"/WEB-INF/views/");
+				"/WEB-INF/views/");//
 		registry.addResourceHandler("/json/**").addResourceLocations(
-				"/app/json/");
-		registry.addResourceHandler("/css/**")
-				.addResourceLocations("/app/css/");
-		registry.addResourceHandler("/audio/**").addResourceLocations(
-				"/app/audio/");
-		registry.addResourceHandler("/scripts/**").addResourceLocations(
-				"/app/scripts/");
+				"/WEB-INF/app/json/");//
+		registry.addResourceHandler("/app/css/**").addResourceLocations(
+				"/WEB-INF/app/css/");//
+		registry.addResourceHandler("/app/css/vendor/**").addResourceLocations(
+				"/WEB-INF/app/css/vendor/");//
+		registry.addResourceHandler("/build/**").addResourceLocations(
+				"/WEB-INF/build/");//
 		registry.addResourceHandler("/placeholders/**").addResourceLocations(
-				"/app/placeholders/");
-		registry.addResourceHandler("/js/**").addResourceLocations("/app/js/");
-		registry.addResourceHandler("/img/**")
-				.addResourceLocations("/app/img/");
+				"/WEB-INF/app/placeholders/");//
+		registry.addResourceHandler("/js/**").addResourceLocations("/app/js/");//
+		registry.addResourceHandler("/img/**").addResourceLocations(
+				"/WEB-INF/app/img/");//
 		registry.addResourceHandler("/favicon/**").addResourceLocations(
-				"/favicon/");
-		registry.addResourceHandler("/dist/**").addResourceLocations(
-				"/app/dist/");
+				"/favicon/");//
+		registry.addResourceHandler("/app/**").addResourceLocations(
+				"/WEB-INF/app/");//
 	}
 
 	// @Override
@@ -61,11 +59,8 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public InternalResourceViewResolver getInternalResourceViewResolver() {
-		System.out.println("application -------- "
-				+ applicationInfo.getJavaVersion()
-				+ applicationInfo.getVersion());
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setPrefix("WEB-INF/");
 		resolver.setSuffix(".html");
 		resolver.setOrder(1);
 		return resolver;
@@ -106,6 +101,5 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 	//
 	// return sessionFactoryBean;
 	// }
-
 
 }
