@@ -22,3 +22,5 @@ target/*
 hs_err_pid*
 /target/
 /src/main/webapp/WEB-INF/node_modules
+/src/main/webapp/WEB-INF/build
+/src/main/webapp/WEB-INF/node

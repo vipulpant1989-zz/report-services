@@ -13,7 +13,7 @@
 	<description>Jasper Reports with Spring Boot</description>
 	<properties>
 		<full-artifact-name>target/${project.build.finalName}.jar</full-artifact-name>
-		<node_path>C:\Program Files\nodejs\</node_path>
+		<node_path>./node/node.exe</node_path>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -96,6 +96,11 @@
 			</resource>
 			<resource>
 				<directory>src/main/webapp</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>WEB-INF/node_modules/**</exclude>
+					<exclude>WEB-INF/node/**</exclude>
+				</excludes>
 			</resource>
 		</resources>
 		<plugins>
@@ -222,7 +227,8 @@
 							</includes>
 							<jdkVersion>1.8</jdkVersion>
 							<processTypes>
-								<web>java $JAVA_OPTS -Dserver.port=$PORT -jar target/report-services.jar --spring.profiles.active=heroku</web>
+								<web>java $JAVA_OPTS -Dserver.port=$PORT -jar
+									target/report-services.jar --spring.profiles.active=heroku</web>
 							</processTypes>
 						</configuration>
 						<executions>
