@@ -20,9 +20,6 @@ import com.bbt.bean.ApplicationInfoBean;
 public class WebConfigurer extends WebMvcConfigurerAdapter {
 
 	@Autowired
-	DataSource dataSource;
-
-	@Autowired
 	ApplicationInfoBean applicationInfo;
 
 	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
