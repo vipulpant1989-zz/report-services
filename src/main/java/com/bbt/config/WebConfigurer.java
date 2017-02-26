@@ -33,6 +33,8 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 				"/WEB-INF/views/");//
 		registry.addResourceHandler("/json/**").addResourceLocations(
 				"/WEB-INF/app/json/");//
+		registry.addResourceHandler("/app/**").addResourceLocations(
+				"/WEB-INF/app/");//
 		registry.addResourceHandler("/app/css/**").addResourceLocations(
 				"/WEB-INF/app/css/");//
 		registry.addResourceHandler("/app/css/vendor/**").addResourceLocations(
@@ -46,8 +48,6 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 				"/WEB-INF/app/img/");//
 		registry.addResourceHandler("/favicon/**").addResourceLocations(
 				"/favicon/");//
-		registry.addResourceHandler("/app/**").addResourceLocations(
-				"/WEB-INF/app/");//
 	}
 
 	// @Override
