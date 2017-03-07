@@ -14,10 +14,11 @@ var config = {
       inline: true,
       port: 8181
    },
-	
-   module: {
-      
+	module: {
       loaders: [{
+           test : /\.json$/,
+           loader : 'json-loader'
+         },{
            test: /\.css$/,
            loaders: [ 'css-loader' ]
          },{

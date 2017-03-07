@@ -10,35 +10,7 @@ public class Product {
 
 	private String id;
 
-	private Double latitude;
-
-	private Double longitude;
-
 	private String rating;
-
-	public Double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(Double latitude) {
-		this.latitude = latitude;
-	}
-
-	public Double getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(Double longitude) {
-		this.longitude = longitude;
-	}
-
-	public String getRating() {
-		return rating;
-	}
-
-	public void setRating(String rating) {
-		this.rating = rating;
-	}
 
 	public Product(String product_name, String description, String address,
 			String product_id, String rating) {
@@ -80,6 +52,14 @@ public class Product {
 
 	public void setId(String product_id) {
 		this.id = product_id;
+	}
+
+	public String getRating() {
+		return rating;
+	}
+
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
 
 }

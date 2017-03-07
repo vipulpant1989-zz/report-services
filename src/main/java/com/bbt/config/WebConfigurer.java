@@ -11,14 +11,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver;
 
-import com.bbt.bean.ApplicationInfoBean;
+import com.bbt.bean.ApplicationInfo;
 
 @Configuration
 @EnableWebMvc
 public class WebConfigurer extends WebMvcConfigurerAdapter {
 
 	@Autowired
-	ApplicationInfoBean applicationInfo;
+	ApplicationInfo applicationInfo;
 
 	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
 			"classpath:/META-INF/resources/", "classpath:/resources/",
@@ -83,6 +83,11 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName(
 				"forward:/WEB-INF/index.html");
+	}
+
+	@Bean
+	public GoogleDriveConfig getGoogleDriveConfig() {
+		return new GoogleDriveConfig();
 	}
 
 	// @Bean

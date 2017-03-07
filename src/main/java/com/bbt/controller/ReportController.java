@@ -23,8 +23,7 @@ public class ReportController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getAll() throws Exception {
-		throw new NullPointerException();
-		// return new ModelAndView("reports");
+		return new ModelAndView("index");
 	}
 	@RequestMapping(value = "/{reportName}", method = RequestMethod.GET)
 	public ModelAndView getReportByName(

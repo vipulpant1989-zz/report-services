@@ -6,10 +6,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties
-public class ApplicationInfoBean {
+public class ApplicationInfo {
 
 	@Value("${application.version}")
 	private String version;
+
+	@Value("${application.java_version}")
+	private String javaVersion;
 
 	public String getVersion() {
 		return version;
@@ -18,9 +21,6 @@ public class ApplicationInfoBean {
 	public void setVersion(String version) {
 		this.version = version;
 	}
-
-	@Value("${application.java_version}")
-	private String javaVersion;
 
 	public String getJavaVersion() {
 		return javaVersion;

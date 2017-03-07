@@ -1,5 +1,4 @@
-
-
+'use strict';
 import React from 'react';
 import {Card,CardTitle,CardText,CardActions,CardMenu,IconButton,Button} from 'react-mdl';
 import DialogBox from './dialog.box.jsx';
@@ -16,6 +15,8 @@ class CardContent extends React.Component{
    	}
    	generateReport(){
    		let formData = this.props.formData;
+   		console.log(HttpMethod.GET);
+   		var url = '/reports/bbt_invoice?format=pdf';
     }
     resetForm(){
     	let formData = this.props.formData;
@@ -28,11 +29,11 @@ class CardContent extends React.Component{
 			<Card shadow={1} style={{width: '500px', height: '700px', margin: 'auto'}}>
 			    <CardTitle expand style={{color: '#fff', background: 'url(http://www.getmdl.io/assets/demos/dog.png) bottom right 15% no-repeat #46B6AC'}}>Create Report</CardTitle>
 			    <CardText>
-                	<Form fields = {this.props.fields} formData = {this.props.formData} updateFormData={this.props.updateFormData}></Form>
-
+                	<Form fields={this.props.fields} formData={this.props.formData} updateFormData={this.props.updateFormData}>
+                	</Form>
 			    </CardText>
-			    <CardActions border>
-			        <DialogBox text={this.state.message} resetFormHandler={this.resetFormHandler} submitFormHandler={this.onClickDialogHandler}></DialogBox>
+			    <CardActions>
+			        <DialogBox text={this.state.message} resetFormHandler={this.resetFormHandler} submitHandler={this.onClickDialogHandler}></DialogBox>
 			    </CardActions>
 			    <CardMenu style={{color: '#fff'}}>
 			        <IconButton name="share" />

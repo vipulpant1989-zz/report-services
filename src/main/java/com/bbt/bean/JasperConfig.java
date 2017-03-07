@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConfigurationProperties(prefix = "jasperSource")
-public class JasperConfigBean {
+public class JasperConfig {
 
 	private String prefix;
 

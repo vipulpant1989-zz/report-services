@@ -30,7 +30,7 @@ class DialogBox extends React.Component{
             <p>{this.props.text}</p>
           </DialogContent>
           <DialogActions>
-            <Button type='button' onClick={this.props.submitFormHandler}>Agree</Button>
+            <Button type='button' onClick={this.props.submitHandler}>Agree</Button>
             <span style={{ margin : '20px'}} >
             	<Button type='button' onClick={this.handleCloseDialog}>Disagree</Button>
           	</span>
