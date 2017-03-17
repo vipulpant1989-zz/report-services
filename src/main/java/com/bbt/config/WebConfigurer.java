@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiForm
 import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver;
 
 import com.bbt.bean.ApplicationInfo;
+import com.bbt.vendor.google.GoogleServiceImpl;
 
 @Configuration
 @EnableWebMvc
@@ -86,8 +87,8 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public GoogleDriveConfig getGoogleDriveConfig() {
-		return new GoogleDriveConfig();
+	public GoogleServiceImpl getGoogleDriveService() {
+		return new GoogleServiceImpl("bbt-web", "user");
 	}
 
 	// @Bean

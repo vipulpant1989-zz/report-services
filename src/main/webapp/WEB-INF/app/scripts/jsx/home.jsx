@@ -11,6 +11,10 @@ class App extends React.Component {
    			data : [],
    			formData : {},
    			fields : [{
+               name  : 'billNumber',
+               label : 'Bill Number',
+               type : 'text'
+            },{
    				name : 'companyName',
    				label: 'Company Name',
    				type : 'text'
@@ -30,7 +34,13 @@ class App extends React.Component {
    				name : 'subject',
    				label: 'Subject',
    				type : 'textArea'
-   			}]
+   			}],
+            form : {
+               url : '/reports?format=pdf',
+               method : 'POST',
+               target : '_blank'
+
+            }
    		}
    		this.setStateHandler = this.setStateHandler.bind(this);
    		this.updateFormData  = this.updateFormData.bind(this);
@@ -49,7 +59,7 @@ class App extends React.Component {
          	<Layout fixedHeader>
                 <TopNav></TopNav>
                 <Content>
-                	<CardContent fields={this.state.fields} formData={this.state.formData} updateFormData={this.updateFormData}>
+                	<CardContent fields={this.state.fields} form ={this.state.form} formData={this.state.formData} updateFormData={this.updateFormData}>
                 	</CardContent>
                 </Content>
             </Layout>

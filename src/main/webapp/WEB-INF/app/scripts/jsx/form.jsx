@@ -10,7 +10,7 @@ class Form extends React.Component {
 
     }
     getField(){
-		return this.props.fields.map((field , index) => {
+		return this.props.fields.map((field, index) => {
 			if(field.type === 'textArea'){
 			   return <span key={index.toString()}><Textfield rows={3} floatingLabel label = {field.label} name ={field.name} onChange={this.props.updateFormData}/></span>;
 			}else if(field.type === 'number'){
@@ -21,9 +21,15 @@ class Form extends React.Component {
     }
     render(){
 		return (
-			<div style={{width: '300px'}}>
-				{this.getField()}		
-			</div>
+			<form style={{width: '300px'}} method={this.props.form.method} target={this.props.form.target} action={this.props.form.url}>
+				{this.getField()}
+				<span>
+					<button type="submit" className ="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Create</button>	
+				</span>
+				<span style={{marginLeft: '30px'}}>
+					<button type="reset" className ="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Reset</button>	
+				</span>
+			</form>
 		);
 	}
 }

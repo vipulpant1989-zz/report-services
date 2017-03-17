@@ -1,5 +1,6 @@
 var config = {
    entry: [
+      'whatwg-fetch',
       __dirname + '/app/scripts/app.js', 
       __dirname + '/node_modules/react-mdl/extra/material.min.css',  // <==
        __dirname + '/node_modules/react-mdl/extra/material.min.js', // <==

@@ -23,15 +23,16 @@ class DialogBox extends React.Component{
     return (
       <div>
         <Button colored onClick={this.handleOpenDialog} raised ripple>Create</Button>
-        <Button colored onClick={this.props.resetFormHandler} raised ripple>Reset</Button>
+        <Button style={{ marginLeft : '20px'}}  colored onClick={this.props.resetFormHandler} raised ripple>Reset</Button>
         <Dialog open={this.state.openDialog} onCancel={this.handleCloseDialog}>
-          <DialogTitle>Allow data collection?</DialogTitle>
+          <DialogTitle>{this.props.text}</DialogTitle>
           <DialogContent>
-            <p>{this.props.text}</p>
           </DialogContent>
           <DialogActions>
-            <Button type='button' onClick={this.props.submitHandler}>Agree</Button>
-            <span style={{ margin : '20px'}} >
+            <span>
+              <Button type='button' onClick={this.props.submitHandler}>Agree</Button>
+            </span>
+            <span style={{ marginLeft : '20px'}} >
             	<Button type='button' onClick={this.handleCloseDialog}>Disagree</Button>
           	</span>
           </DialogActions>

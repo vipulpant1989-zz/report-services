@@ -1,19 +1,25 @@
 package com.bbt.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bbt.bean.Product;
+import com.bbt.bean.Report;
+import com.bbt.service.ReportService;
+import com.bbt.vendor.google.GoogleDriveService;
+import com.google.api.services.drive.Drive;
 
 @Controller
 @RequestMapping("/reports")
@@ -21,30 +27,38 @@ public class ReportController {
 
 	private static final String FORMAT = "format";
 
+	@Autowired
+	GoogleDriveService driveService;
+
+	@Autowired
+	HttpSession session;
+
+	@Autowired
+	HttpServletResponse response;
+
+	public Drive drive = null;
+
+	@Autowired
+	ReportService reportService;
+
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getAll() throws Exception {
+		// driveService.connect();
 		return new ModelAndView("index");
 	}
-	@RequestMapping(value = "/{reportName}", method = RequestMethod.GET)
-	public ModelAndView getReportByName(
-			@PathVariable("reportName") final String reportName,
-			@RequestParam(FORMAT) String format) {
+
+	@RequestMapping(method = RequestMethod.POST)
+	public ModelAndView getInvoiceReport(@RequestParam(FORMAT) String format,
+			@ModelAttribute Report report) {
 		ModelMap map = new ModelMap();
-		List<Product> dataList = new ArrayList<>();
-		dataList.add(new Product("xyz", "standard test product", "new address",
-				"1", "5"));
-		dataList.add(new Product("xyz", "standard test product", "new address",
-				"1", "5"));
-		dataList.add(new Product("xyz", "standard test product", "new address",
-				"1", "5"));
-		dataList.add(new Product("abc", "standard test product 2",
-				"new address 2", "2", "4"));
+		report.setParticulars(reportService.getReportParticualar(report
+				.getAmount()));
 		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(
-				dataList, false);
+				Collections.singletonList(report), false);
 		map.put(FORMAT, format);
-		map.put("product_id", 1);
 		map.put("datasource", beanColDataSource);
-		return new ModelAndView("report_" + reportName, map);
+		map.put("particulars", report.getParticulars());
+		return new ModelAndView("report_bbt_invoice", map);
 	}
-	
+
 }

@@ -1,26 +1,20 @@
-const Enum =require('enumify');
-const rp = require('request-promise');
-
-class HttpMethod extends Enum{}
-
-HttpMethod.initEnum(['POST','GET','PUT','DELETE']);
+import 'whatwg-fetch';
 
 class HttpCall {
 
-	constructor(url, method, data){
+	constructor(method, data){
 		this.options = {
-		    method: method.name,
-		    uri: this.url,
-		    form: this.data,
+		    method: method,
+		    body: JSON.stringify(data),
 		    headers: {
-		        /* 'content-type': 'application/x-www-form-urlencoded' */ // Set automatically
-		    },
-		    json : true
+    			'Content-Type': 'application/json'
+  			}
 		};
+
 	}
-	call(){
-		return rp(this.options).then(function(response){
-			return response;
+	call(url){
+		return fetch(url, this.options).then(function(response){
+			return response.text();
 		}).catch(function(error){
 			return error;
 		});
@@ -28,11 +22,11 @@ class HttpCall {
 }
 
 
-class Api extends HttpCall{
-	constructor(url, method, data){
-		super(url, method, data);
+class RestService extends HttpCall{
+	constructor(method, data){
+		super(method, data);
 	}
 }
 
-export default Api;
-module.export = HttpMethod;
+export default RestService;
+export var __useDefault = true;
