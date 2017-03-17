@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bbt_invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91b44d16-3998-44b5-b8d8-109471f5ce61">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="224"/>
+	<property name="ireport.background.image" value="C:\Users\S751233\Pictures\bbt_logo_small.png"/>
+	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,137,92"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Times New Roman" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Times New Roman" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#000000">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0FFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFFFFF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="3d915c85-6c8a-4541-b8cb-565ff8152a36">
+		<field name="particular" class="java.lang.String"/>
+		<field name="amount" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Table Dataset 2" uuid="49f1e7a7-328d-4b9b-bc44-04d9680d884d"/>
+	<field name="artistName" class="java.lang.String"/>
+	<field name="address" class="java.lang.String"/>
+	<field name="billNumber" class="java.lang.String"/>
+	<field name="companyName" class="java.lang.String"/>
+	<field name="subject" class="java.lang.String"/>
+	<field name="contactEmail" class="java.lang.String"/>
+	<field name="particulars" class="java.util.List"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="100">
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="0" y="10" width="410" height="35" forecolor="#FFFFFF" backcolor="#6666FF" uuid="9d045c3d-ca07-4aad-a370-da7f9d05913d"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+					</textElement>
+					<text><![CDATA[Particulars]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" mode="Opaque" x="410" y="10" width="145" height="35" forecolor="#FFFFFF" backcolor="#6666FF" uuid="a6d43340-9010-4e06-b625-5e193268594f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman"/>
+					</textElement>
+					<text><![CDATA[Amount]]></text>
+				</staticText>
+				<line>
+					<reportElement x="410" y="45" width="1" height="33" uuid="3c13f676-ec3a-4a45-a19d-95a67652ba04"/>
+				</line>
+				<line>
+					<reportElement x="1" y="77" width="554" height="1" uuid="d0fbc0fe-2bc9-423a-b2ed-c7f3cd6579b2"/>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement x="2" y="45" width="408" height="31" uuid="b8b08d04-126e-49d7-bc17-a6eb0888e773"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{particulars.name}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="411" y="45" width="144" height="31" uuid="2925ba51-0be8-4531-b1d9-fac0b294145e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Times New Roman" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{particulars.amount}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="45" width="1" height="33" uuid="75c287d9-8f1d-4497-8dfa-0dea94f7c833"/>
+				</line>
+				<line>
+					<reportElement x="554" y="44" width="1" height="33" uuid="da5d1f5d-96fe-45e8-89d0-0cf28300b17b"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="219" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="84" y="157" width="391" height="62" uuid="234a469d-4426-4997-9956-457472e9c0ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Big Band Theory Pvt ltd]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="121" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="32" width="59" height="15" forecolor="#000000" uuid="81c4a1af-a7f0-4e98-9287-df12ab701aaf"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Bill To,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="306" y="32" width="105" height="15" forecolor="#000000" uuid="f0d713ca-c50b-4f5b-a6f6-912deee4f2e3"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="306" y="46" width="105" height="15" forecolor="#000000" uuid="d03ecba7-abc1-4b1c-82da-e966ad346b89"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Pan number:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="413" y="47" width="139" height="15" forecolor="#000000" uuid="8393b83a-f46c-4401-80a5-915f015c7205"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[AAGCB4327A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="306" y="61" width="106" height="15" forecolor="#000000" uuid="cc2b9c98-eaf7-4706-8b2a-a5cc9105f063"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Service tax number:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="413" y="63" width="140" height="15" forecolor="#000000" uuid="0fb7dd1b-ab83-4e9e-9795-96f8103b2644"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[AAGCB4327ASD001]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="67" width="305" height="34" uuid="869a3a33-9fac-458d-89c1-99e720d8d830"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="413" y="32" width="139" height="20" uuid="9c85f521-4c92-4918-8eaa-50a05ad9ea44"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="101" width="38" height="20" uuid="2fadb0fa-1d35-454f-b2e4-5062ed445c69"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="39" y="101" width="513" height="20" uuid="46b68bc4-f3cf-4626-b8a9-e272ccbbc3e3"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subject}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="47" width="196" height="20" uuid="08328b46-8635-4b09-b952-f3f4ad5bb7ca"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="232" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="16" width="118" height="50" uuid="917d2e7e-66d1-4630-a104-896e24f00871"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Akshay Ahuja,Founder,Big Band Theory Pvt Ltd.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="118" width="415" height="24" uuid="a2aaaa4e-ffcd-458b-a2eb-2b6b12053285"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[If you have any questions about this invoice, Please Contact]]></text>
+			</staticText>
+			<line>
+				<reportElement x="59" y="90" width="415" height="1" uuid="65c188c2-737a-499b-b538-fbe4e4554680"/>
+			</line>
+			<line>
+				<reportElement x="59" y="231" width="415" height="1" uuid="17a4c599-2538-4660-a167-1da0b545e422"/>
+			</line>
+			<staticText>
+				<reportElement x="60" y="143" width="415" height="24" uuid="e6c7c20c-6ab1-4d00-868f-e33adc1f3e0f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mansimran singh , Product Head Big Band Theory,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="167" width="414" height="20" uuid="bd628398-bcb7-485a-bdfd-2582834b3bb3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[+91-9876932169 ]]></text>
+			</staticText>
+			<textField hyperlinkType="Reference">
+				<reportElement x="61" y="187" width="413" height="15" forecolor="#3333FF" uuid="5fed5314-bb9f-446d-90e8-09a875ec3a4f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["mansimransingh@thebigbandtheory.net"]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["mailto:mansimransingh@thebigbandtheory.net"]]></hyperlinkReferenceExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="ceefb0a2-865f-4a3d-97f3-1060dd636915"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="cf9b3f3e-a84b-434d-bb72-6142ac800c1b"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="f5dc21d9-ad30-473e-aabc-666332765b72"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="a8fdf540-8e70-4a01-8a81-3b3256e601e1"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="2b93a79e-2579-4a48-866c-db0acf05ead3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
