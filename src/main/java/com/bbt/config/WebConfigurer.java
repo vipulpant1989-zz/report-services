@@ -72,8 +72,6 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 		JasperReportsViewResolver resolver = new JasperReportsViewResolver();
 		resolver.setPrefix("classpath:report/");
 		resolver.setSuffix(".jrxml");
-
-		// resolver.setReportDataKey("datasource");
 		resolver.setViewNames("*report_*");
 		resolver.setViewClass(JasperReportsMultiFormatView.class);
 		resolver.setOrder(0);

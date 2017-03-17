@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bbt.bean.Report;
 import com.bbt.service.ReportService;
 import com.bbt.vendor.google.GoogleDriveService;
-import com.google.api.services.drive.Drive;
 
 @Controller
 @RequestMapping("/reports")
@@ -35,8 +34,6 @@ public class ReportController {
 
 	@Autowired
 	HttpServletResponse response;
-
-	public Drive drive = null;
 
 	@Autowired
 	ReportService reportService;
@@ -57,7 +54,6 @@ public class ReportController {
 				Collections.singletonList(report), false);
 		map.put(FORMAT, format);
 		map.put("datasource", beanColDataSource);
-		map.put("particulars", report.getParticulars());
 		return new ModelAndView("report_bbt_invoice", map);
 	}
 

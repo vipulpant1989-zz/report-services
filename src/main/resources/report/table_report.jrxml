@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="table_report" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c91153bd-f402-476d-9ee3-af5cf997cb61">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="12" isBold="true"/>
+	<subDataset name="dataset1" uuid="75208e9a-5267-4353-96ab-ff25c971c377"/>
+	<field name="amount" class="java.math.BigDecimal"/>
+	<field name="name" class="java.lang.String"/>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="411" y="2" width="144" height="31" uuid="6941ba03-3777-4e94-afc7-aa8e0ce86481"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="2" width="409" height="31" uuid="8ecee67a-3153-42e5-ae25-4950c4532729"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="410" y="0" width="1" height="33" uuid="819e1d0a-6983-4acb-960d-842ba4b44a81"/>
+			</line>
+			<line>
+				<reportElement x="553" y="0" width="1" height="34" uuid="e1477f04-d7b6-4d24-ab89-30104c73a2f2"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="0" width="1" height="33" uuid="12b55485-615e-4e68-b4ce-c42ef6c14834"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="33" width="554" height="1" uuid="e5dd1b3e-83fa-419c-a946-8d8c011c1a7c"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
