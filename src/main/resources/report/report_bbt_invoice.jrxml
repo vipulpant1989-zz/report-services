@@ -107,7 +107,7 @@
 				<textElement textAlignment="Right">
 					<font fontName="Times New Roman"/>
 				</textElement>
-				<text><![CDATA[No:]]></text>
+				<text><![CDATA[Bill number:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="306" y="-74" width="105" height="15" forecolor="#000000" uuid="d03ecba7-abc1-4b1c-82da-e966ad346b89"/>

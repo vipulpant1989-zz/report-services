@@ -1,5 +1,7 @@
 package com.bbt.config;
 
+import java.util.Properties;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -49,6 +51,10 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 				"/WEB-INF/app/img/");//
 		registry.addResourceHandler("/favicon/**").addResourceLocations(
 				"/favicon/");//
+		// registry.addResourceHandler("/static_reports/")
+		// .addResourceLocations(
+		// "/WEB-INF/static_reports/");
+		
 	}
 
 	// @Override
@@ -69,11 +75,15 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public JasperReportsViewResolver getJasperReportsViewResolver() {
+		Properties subReportUrls = new Properties();
+		subReportUrls.put("SubReport",
+				"/WEB-INF/static_reports/table_report.jrxml");
 		JasperReportsViewResolver resolver = new JasperReportsViewResolver();
 		resolver.setPrefix("classpath:report/");
 		resolver.setSuffix(".jrxml");
 		resolver.setViewNames("*report_*");
 		resolver.setViewClass(JasperReportsMultiFormatView.class);
+		resolver.setSubReportUrls(subReportUrls);
 		resolver.setOrder(0);
 		return resolver;
 	}

@@ -1,7 +1,6 @@
 package com.bbt.advice;
 
 import java.util.Date;
-import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,11 +18,6 @@ public class handleExceptions{
 	@ExceptionHandler(Exception.class)
 	public ModelAndView handleException(HttpServletRequest request,
 			Exception exception) {
-		System.out.println("eror ----" + exception.getCause());
-		Enumeration<String> enums = request.getAttributeNames();
-		while (enums.hasMoreElements()) {
-			System.out.println("status -------" + enums.nextElement());
-		}
 		logger.error("Internal server error ", exception);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("exception", exception);
