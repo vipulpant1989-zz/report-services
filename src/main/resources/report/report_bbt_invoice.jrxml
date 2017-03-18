@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="80"/>
-	<property name="ireport.background.image" value="C:\Users\S751233\Pictures\bbt_logo_small.png"/>
+	<property name="ireport.background.image" value="\\report\\images\\bbt_logo_small.png"/>
 	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,137,92"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Times New Roman" fontSize="18"/>
@@ -65,9 +65,7 @@
 	</subDataset>
 	<subDataset name="Table Dataset 2" uuid="49f1e7a7-328d-4b9b-bc44-04d9680d884d"/>
 	<subDataset name="dataset1" uuid="07d502a7-3257-482c-a9ce-addd58a6a66c"/>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\S751233\\"]]></defaultValueExpression>
-	</parameter>
+	<parameter name="SubReport" class="net.sf.jasperreports.engine.JasperReport"/>
 	<field name="artistName" class="java.lang.String"/>
 	<field name="address" class="java.lang.String"/>
 	<field name="billNumber" class="java.lang.String"/>
@@ -177,7 +175,8 @@
 			<subreport>
 				<reportElement x="2" y="37" width="553" height="84" uuid="6efccebc-46d8-4b78-93c4-d8d84ee616ac"/>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{particulars})]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "table_report.jasper"]]></subreportExpression>
+				<subreportExpression class="net.sf.jasperreports.engine.JasperReport">
+                  <![CDATA[$P{SubReport}]]></subreportExpression>
 			</subreport>
 			<staticText>
 				<reportElement mode="Opaque" x="410" y="2" width="145" height="35" forecolor="#FFFFFF" backcolor="#6666FF" uuid="e565f803-6ac8-432e-8bb5-c341253ad7c7"/>
