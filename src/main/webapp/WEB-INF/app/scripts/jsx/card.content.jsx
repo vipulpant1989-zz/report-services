@@ -32,7 +32,7 @@ class CardContent extends React.Component{
 	render(){
 		return(
 			<Card shadow={1} style={{width: '500px', height: '700px', margin: 'auto'}}>
-			    <CardTitle expand style={{color: '#fff', background: 'url(http://www.getmdl.io/assets/demos/dog.png) bottom right 15% no-repeat #46B6AC'}}>Create Report</CardTitle>
+			    <CardTitle expand style={{color: '#fff', background: 'url(http://www.getmdl.io/assets/demos/dog.png) bottom right 15% no-repeat #46B6AC'}}>Create Invoice</CardTitle>
 			    <CardText>
                 	<Form fields={this.props.fields} form = {this.props.form} formData={this.props.formData} updateFormData={this.props.updateFormData}>
                 	</Form>
