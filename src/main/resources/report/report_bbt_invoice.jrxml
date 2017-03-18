@@ -89,7 +89,7 @@
 			</staticText>
 			<image>
 				<reportElement x="0" y="-21" width="121" height="76" uuid="fbd44725-7b59-4ab3-ac2e-6e5745a99bad"/>
-				<imageExpression><![CDATA["C:\\Users\\S751233\\jasper-report\\bbt-service\\report-services\\src\\main\\webapp\\WEB-INF\\app\\images\\bbt_logo_small.png"]]></imageExpression>
+				<imageExpression><![CDATA["\\WEB-INF\\app\\images\\bbt_logo_small.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
