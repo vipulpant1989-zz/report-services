@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bbt_invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91b44d16-3998-44b5-b8d8-109471f5ce61">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="78"/>
 	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,137,92"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Times New Roman" fontSize="18"/>
@@ -72,6 +72,7 @@
 	<field name="subject" class="java.lang.String"/>
 	<field name="contactEmail" class="java.lang.String"/>
 	<field name="particulars" class="java.util.List"/>
+	<field name="logo" class="java.awt.Image"/>
 	<group name="Group2">
 		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
 		<groupHeader>
@@ -89,7 +90,7 @@
 			</staticText>
 			<image>
 				<reportElement x="0" y="-21" width="121" height="76" uuid="fbd44725-7b59-4ab3-ac2e-6e5745a99bad"/>
-				<imageExpression><![CDATA["\\WEB-INF\\app\\images\\bbt_logo_small.png"]]></imageExpression>
+				<imageExpression><![CDATA[$F{logo}]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -199,11 +200,11 @@
 	<detail>
 		<band height="232" splitType="Stretch">
 			<staticText>
-				<reportElement x="1" y="16" width="118" height="50" uuid="917d2e7e-66d1-4630-a104-896e24f00871"/>
+				<reportElement x="2" y="16" width="98" height="19" uuid="917d2e7e-66d1-4630-a104-896e24f00871"/>
 				<textElement verticalAlignment="Bottom">
 					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Akshay Ahuja,Founder,Big Band Theory Pvt Ltd.]]></text>
+				<text><![CDATA[Akshay Ahuja]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="59" y="118" width="415" height="24" uuid="a2aaaa4e-ffcd-458b-a2eb-2b6b12053285"/>
@@ -240,6 +241,13 @@
 				<textFieldExpression><![CDATA["mansimransingh@thebigbandtheory.net"]]></textFieldExpression>
 				<hyperlinkReferenceExpression><![CDATA["mailto:mansimransingh@thebigbandtheory.net"]]></hyperlinkReferenceExpression>
 			</textField>
+			<staticText>
+				<reportElement x="3" y="35" width="142" height="31" uuid="a220ed80-3975-40b7-a189-4b0362c10eb9"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Founder,Big Band Theory Pvt Ltd.]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>

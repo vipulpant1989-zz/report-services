@@ -6,10 +6,10 @@ server:
  port: 8060
 
 jasperSource:
- prefix:jasperreports/
- suffix:.jrxml
- reportDataKey:datasource
- viewName:report_*
+ prefix: jasperreports/
+ suffix: .jrxml
+ reportDataKey: datasource
+ viewName: report_*
 
 application:
  version: '@project.version@'

@@ -8,6 +8,15 @@ public class Particular {
 
 	private BigDecimal amount;
 
+	public Particular() {
+
+	}
+
+	public Particular(String name, BigDecimal amount) {
+		this.name = name;
+		this.amount = amount;
+	}
+
 	public String getName() {
 		return name;
 	}

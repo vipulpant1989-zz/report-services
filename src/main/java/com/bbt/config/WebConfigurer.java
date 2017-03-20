@@ -47,14 +47,14 @@ public class WebConfigurer extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/placeholders/**").addResourceLocations(
 				"/WEB-INF/app/placeholders/");//
 		registry.addResourceHandler("/js/**").addResourceLocations("/app/js/");//
-		registry.addResourceHandler("/img/**").addResourceLocations(
-				"/WEB-INF/app/img/");//
+		registry.addResourceHandler("/images/**").addResourceLocations(
+				"/WEB-INF/app/images/");//
 		registry.addResourceHandler("/favicon/**").addResourceLocations(
 				"/favicon/");//
-		// registry.addResourceHandler("/static_reports/")
-		// .addResourceLocations(
-		// "/WEB-INF/static_reports/");
-		
+		registry.addResourceHandler("/static/**").addResourceLocations(
+				"/static/");
+		registry.addResourceHandler("**/static/images/**")
+				.addResourceLocations("/static/images/");
 	}
 
 	// @Override

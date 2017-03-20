@@ -1,5 +1,6 @@
 package com.bbt.bean;
 
+import java.awt.image.BufferedImage;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -20,6 +21,8 @@ public class Report {
 	private String subject;
 
 	private List<Particular> particulars;
+
+	private java.awt.Image logo;
 
 	public String getCompanyName() {
 		return companyName;
@@ -83,6 +86,14 @@ public class Report {
 
 	public void setParticulars(List<Particular> particulars) {
 		this.particulars = particulars;
+	}
+
+	public java.awt.Image getLogo() {
+		return logo;
+	}
+
+	public void setLogo(BufferedImage logo) {
+		this.logo = logo;
 	}
 
 }

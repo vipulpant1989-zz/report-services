@@ -1,13 +1,17 @@
 package com.bbt.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Collections;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,6 +30,8 @@ public class ReportController {
 
 	private static final String FORMAT = "format";
 
+	private static final String imagePath = "/static/images/bbt_logo_small.png";
+
 	@Autowired
 	GoogleDriveService driveService;
 
@@ -33,7 +39,7 @@ public class ReportController {
 	HttpSession session;
 
 	@Autowired
-	HttpServletResponse response;
+	HttpServletRequest request;
 
 	@Autowired
 	ReportService reportService;
@@ -44,10 +50,16 @@ public class ReportController {
 		return new ModelAndView("index");
 	}
 
+	@Autowired
+	ApplicationContext ctx;
+
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView getInvoiceReport(@RequestParam(FORMAT) String format,
-			@ModelAttribute Report report) {
+			@ModelAttribute Report report) throws IOException {
 		ModelMap map = new ModelMap();
+		BufferedImage image = ImageIO.read(getClass().getResourceAsStream(
+				imagePath));
+		report.setLogo(image);
 		report.setParticulars(reportService.getReportParticualar(report
 				.getAmount()));
 		JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(
@@ -56,5 +68,4 @@ public class ReportController {
 		map.put("datasource", beanColDataSource);
 		return new ModelAndView("report_bbt_invoice", map);
 	}
-
 }
