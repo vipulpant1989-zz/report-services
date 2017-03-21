@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bbt_invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="91b44d16-3998-44b5-b8d8-109471f5ce61">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="78"/>
+	<property name="ireport.y" value="0"/>
 	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,137,92"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Times New Roman" fontSize="18"/>
@@ -89,7 +89,7 @@
 				<text><![CDATA[Big Band Theory Pvt ltd]]></text>
 			</staticText>
 			<image>
-				<reportElement x="0" y="-21" width="121" height="76" uuid="fbd44725-7b59-4ab3-ac2e-6e5745a99bad"/>
+				<reportElement x="0" y="-12" width="121" height="76" uuid="fbd44725-7b59-4ab3-ac2e-6e5745a99bad"/>
 				<imageExpression><![CDATA[$F{logo}]]></imageExpression>
 			</image>
 		</band>
