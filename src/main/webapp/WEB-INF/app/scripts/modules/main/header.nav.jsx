@@ -1,16 +1,15 @@
 import React from 'react';
 import { Navigation, Header, Layout , Drawer , Content} from 'react-mdl';
+import { Link } from 'react-router';
 
 class TopNav extends React.Component {
 	render(){
 		return(
 		   <div>
-		        <Header title={<span><span style={{ color: '#ddd' }}>Area / </span><strong>Report Engine</strong></span>}>
+		        <Header title={<span><strong>Report Engine</strong></span>}>
 		            <Navigation>
-		                <a href="">Link</a>
-		                <a href="">Link</a>
-		                <a href="">Link</a>
-		                <a href="">Link</a>
+		            	<Link to="/invoice" activeStyle={{ borderBottom: '5px solid #ea0707',background: '#442020'}}>Invoice</Link>
+		                <Link to="/invoices" activeStyle={{ borderBottom: '5px solid #ea0707',background: '#442020'}}>Invoices</Link>
 		            </Navigation>
 		        </Header>
 		        <Drawer title="Title">

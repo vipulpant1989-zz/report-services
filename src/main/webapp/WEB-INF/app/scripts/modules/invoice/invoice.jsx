@@ -1,10 +1,9 @@
 import React from 'react';
-import TopNav from './header.nav.jsx';
 import { Layout, Content} from 'react-mdl';
 
 import CardContent from './card.content.jsx';
 
-class App extends React.Component {
+class Invoice extends React.Component {
    constructor(){
    		super();
    		this.state = {
@@ -55,17 +54,12 @@ class App extends React.Component {
    }
    render() {
       return (
-         <div>
-         	<Layout fixedHeader>
-                <TopNav></TopNav>
-                <Content>
-                	<CardContent fields={this.state.fields} form ={this.state.form} formData={this.state.formData} updateFormData={this.updateFormData}>
-                	</CardContent>
-                </Content>
-            </Layout>
-         </div>
+         <Content>
+         	<CardContent fields={this.state.fields} form ={this.state.form} formData={this.state.formData} updateFormData={this.updateFormData}>
+         	</CardContent>
+         </Content>
       );
    }
 }
 
-export default App;
+export default Invoice;

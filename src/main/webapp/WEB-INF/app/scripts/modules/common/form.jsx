@@ -7,7 +7,6 @@ class Form extends React.Component {
 	 constructor(props){
    		super(props);
    		this.getField = this.getField.bind(this);
-
     }
     getField(){
 		return this.props.fields.map((field, index) => {

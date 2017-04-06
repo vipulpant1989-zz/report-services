@@ -8,10 +8,11 @@ var config = {
 	
    output: {
       path: __dirname + '/build',
-      filename: 'index.js',
+      filename:'bundle.js'
    },
 	
    devServer: {
+      hot: false,
       inline: true,
       port: 8181
    },

@@ -12,6 +12,10 @@ jasperSource:
  viewName: report_*
 
 application:
- version: '@project.version@'
- java_version: '@project.version@'
+ version: @project.version@
+ java_version: @project.version@
  
+elasticsearch:
+  port: 9300,
+  host: localhost,
+  clustername: bbt-cluster
